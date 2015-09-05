@@ -23,18 +23,24 @@ public class MyShapeView extends View {
     private int colorRect;
     private int colorCirc;
 
-    // constructor for RECTANGLES
+    //constructor for RECTANGLES
     public MyShapeView(Context c) {
-        super(c);
+       super(c);
     }
 
-    // constructor for CIRCLES (overloading)
-    public MyShapeView(Context c, float xc, float yc, float r, int colorCirc) {
+    // constructor for CIRCLES
+    public MyShapeView(Context c,float xr, float yr, float w, float h, float xc, float yc, float r, int colorRect, int colorCirc) {
         super(c);
+        this.xRect = xr;
+        this.yRect = yr;
+        this.width = w;
+        this.height = h;
         this.xCirc = xc;
         this.yCirc = yc;
         this.radius = r;
+        this.colorRect = colorRect;
         this.colorCirc = colorCirc;
+
     }
 
     public float myGetWidth() {
@@ -111,10 +117,13 @@ public class MyShapeView extends View {
 
     @Override
     public void onDraw(Canvas canvas) {
+        paint.setColor(Color.BLUE);
+        canvas.drawOval(20, 30.2f, 300, 400, paint);
         paint.setColor(colorRect);
         canvas.drawRect(xRect, yRect, xRect + width, yRect + height, paint);
         paint.setColor(colorCirc);
         canvas.drawCircle(xCirc, yCirc, radius, paint);
+
     }
 }
 
