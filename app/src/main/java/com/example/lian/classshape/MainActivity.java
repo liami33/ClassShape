@@ -1,17 +1,15 @@
 package com.example.lian.classshape;
 
 import android.content.Intent;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.drawable.shapes.Shape;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +20,13 @@ public class MainActivity extends AppCompatActivity {
     public final static String YCIRC = "com.example.lian.classshape.YCIRC";
     public final static String XCIRC = "com.example.lian.classshape.XCIRC";
     public final static String RADIUS = "com.example.lian.classshape.RADIUS";
+    public final static String COLOR1 = "com.example.lian.classshape.COLOR1";
+    public final static String COLOR2 = "com.example.lian.classshape.COLOR2";
+
+    private String[] colorsArray;
+
+    private Spinner spin1;
+    private Spinner spin2;
     
 
     public void onClick(View v) {
@@ -55,13 +60,33 @@ public class MainActivity extends AppCompatActivity {
         String radius = editText.getText().toString();
         intent.putExtra(RADIUS, radius);
 
+        intent.putExtra(COLOR1, SpinnerListener1.selectedColor);
+        intent.putExtra(COLOR2, SpinnerListener2.selectedColor);
+
         startActivity(intent);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
+        spin1 = (Spinner)findViewById(R.id.spinner1);
+        spin1.setOnItemSelectedListener(new SpinnerListener1());
+        spin2 = (Spinner)findViewById(R.id.spinner2);
+        spin2.setOnItemSelectedListener(new SpinnerListener2());
+
+        colorsArray = getResources().getStringArray(R.array.colors);
+        SpinnerListener1.selectedColor = colorsArray[0];
+        SpinnerListener2.selectedColor = colorsArray[0];
+
+        // adapter between colorsArray and the first spinner
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, colorsArray);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin1.setAdapter(spinnerAdapter);
+        spin2.setAdapter(spinnerAdapter);
+
 //
 //        MyShapeView myShape = new MyShapeView(this, 400, 900, 200, Color.GREEN);
 //        myShape.setColorRect(Color.CYAN);
@@ -111,4 +136,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }

@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Rectangle - X" />
+        android:hint="@string/rectX" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -25,7 +25,7 @@
         android:layout_below="@+id/editText1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Rectangle - Y" />
+        android:hint="@string/rectY" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -36,7 +36,7 @@
         android:layout_below="@+id/editText2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Rectangle - width" />
+        android:hint="@string/rectWidth" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
         android:layout_below="@+id/editText3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Rectangle - height" />
+        android:hint="@string/rectHeight" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -58,7 +58,7 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Circle - X" />
+        android:hint="@string/circX" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -69,7 +69,7 @@
         android:layout_below="@+id/editText5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Circle - Y" />
+        android:hint="@string/circY" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -80,15 +80,32 @@
         android:layout_below="@+id/editText6"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Circle - radius" />
+        android:hint="@string/circRadius" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Draw"
+        android:text="@string/draw"
         android:id="@+id/button"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:onClick="onClick" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner1"
+        android:layout_above="@+id/editText5"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner2"
+        android:layout_below="@+id/editText7"
+        android:layout_alignRight="@+id/spinner1"
+        android:layout_alignEnd="@+id/spinner1"
+        android:entries="@array/colors" />
 
 </RelativeLayout>
