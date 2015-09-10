@@ -10,6 +10,7 @@ public class SpinnerListener1 implements AdapterView.OnItemSelectedListener {
 
     public static String selectedColor;
 
+
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         // On selecting a spinner item
         selectedColor = parent.getItemAtPosition(position).toString();

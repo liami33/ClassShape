@@ -23,6 +23,8 @@ public class DisplayShapes extends AppCompatActivity {
         float xcirc;
         float ycirc;
         float radius;
+        int color1=Color.GREEN;
+        int color2=Color.GREEN;
 
 
         Intent intent = getIntent();
@@ -88,7 +90,18 @@ public class DisplayShapes extends AppCompatActivity {
             radius = 0;
         }
 
-        MyShapeView shapes = new MyShapeView(this, xrect, yrect, width, height, xcirc, ycirc, radius, Color.MAGENTA, Color.GREEN);
+        message = SpinnerListener1.selectedColor;
+        if (message.equals(MainActivity.colorsArray[0])) color1=Color.GREEN;
+        if (message.equals(MainActivity.colorsArray[1])) color1=Color.BLUE;
+        if (message.equals(MainActivity.colorsArray[2])) color1=Color.RED;
+
+        message = SpinnerListener2.selectedColor;
+        if (message.equals(MainActivity.colorsArray[0])) color2=Color.GREEN;
+        if (message.equals(MainActivity.colorsArray[1])) color2=Color.BLUE;
+        if (message.equals(MainActivity.colorsArray[2])) color2=Color.RED;
+
+
+        MyShapeView shapes = new MyShapeView(this, xrect, yrect, width, height, xcirc, ycirc, radius, color1, color2);
         setContentView(shapes);
     }
 

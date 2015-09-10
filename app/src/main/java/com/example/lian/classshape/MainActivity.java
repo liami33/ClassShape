@@ -20,10 +20,8 @@ public class MainActivity extends AppCompatActivity {
     public final static String YCIRC = "com.example.lian.classshape.YCIRC";
     public final static String XCIRC = "com.example.lian.classshape.XCIRC";
     public final static String RADIUS = "com.example.lian.classshape.RADIUS";
-    public final static String COLOR1 = "com.example.lian.classshape.COLOR1";
-    public final static String COLOR2 = "com.example.lian.classshape.COLOR2";
 
-    private String[] colorsArray;
+    public static String[] colorsArray;
 
     private Spinner spin1;
     private Spinner spin2;
@@ -60,9 +58,6 @@ public class MainActivity extends AppCompatActivity {
         String radius = editText.getText().toString();
         intent.putExtra(RADIUS, radius);
 
-        intent.putExtra(COLOR1, SpinnerListener1.selectedColor);
-        intent.putExtra(COLOR2, SpinnerListener2.selectedColor);
-
         startActivity(intent);
     }
 
@@ -85,33 +80,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, colorsArray);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin1.setAdapter(spinnerAdapter);
-        spin2.setAdapter(spinnerAdapter);
-
-//
-//        MyShapeView myShape = new MyShapeView(this, 400, 900, 200, Color.GREEN);
-//        myShape.setColorRect(Color.CYAN);
-//        Log.i("The number behind CYAN:", Integer.toString(Color.CYAN));
-//        myShape.setxRect(100);
-//        myShape.setyRect(100);
-//        myShape.mySetHeight(300);
-//        myShape.mySetWidth(600);
-//
-//        setContentView(myShape);
-//        {
-//            myShape.onDraw(canvas);
-//        }
-
-
-        // create a blue rectangle, with width=10 and length=20
-        //MyShape rectangle = new MyShape("Rectangle", "Blue", 20, 10);
-        // Integer.toString() is a wrapper to use integer methods
-        //Log.i(Integer.toString(rectangle.getWidth()), "");
-
-        // create a default circle - color=red, radius=20
-        //MyShape circle = new MyShape();
-        //circle.draw();
-        //Log.i(Integer.toString(circle.getRadius()), "");
-
+        //spin2.setAdapter(spinnerAdapter);
 
     }
 
